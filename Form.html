@@ -39,16 +39,29 @@
 
           <div class="container" >
             <form>
+           
+              <p>
+                <span id="datetime"></span>
+              </p>
+
+              <script>
+                var dt= new Date();
+                document.getElementById("datetime").innerHTML=dt.toLocaleString();
+              </script>
+
               <label for="name">:الاسم</label>
               <input type="text" id="name" name="name" required>
               <label for="email">الايميل:</label>
               <input type="text" id="email" name="email" required>
               <label for="message">:ملخص اختيارك</label>
               <textarea id="message" name="message" rows="4" required></textarea> <br> <br>
-              <input type="submit" value="Submit">
-              <div class="alert alert-success" role="alert">
-                thank you 
-              </div>
+              <input type="submit" value="Submit" onclick="submitalert()">
+              <script>
+                function submitalert(){
+                  window.alert("Thank You \n " + "You are submit this form at :" + Date() );
+                }
+              </script>
+            
             </form>
           </div>
         </div>
