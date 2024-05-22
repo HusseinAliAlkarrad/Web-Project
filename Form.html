@@ -35,36 +35,142 @@
               </ul>
             </nav>
         </header>
-        <div>
-
+        
           <div class="container" >
             <form>
-           
               <p>
                 <span id="datetime"></span>
               </p>
-
               <script>
                 var dt= new Date();
                 document.getElementById("datetime").innerHTML=dt.toLocaleString();
               </script>
 
               <label for="name">:الاسم</label>
-              <input type="text" id="name" name="name" required>
+              <input type="text" id="name" name="name">
+              <br>
+              
+              <p id="msgName" style="color: red;"></p>
+
               <label for="email">الايميل:</label>
-              <input type="text" id="email" name="email" required>
-              <label for="message">:ملخص اختيارك</label>
-              <textarea id="message" name="message" rows="4" required></textarea> <br> <br>
-              <input type="submit" value="Submit" onclick="submitalert()">
-              <script>
-                function submitalert(){
-                  window.alert("Thank You \n " + "You are submit this form at :" + Date() );
-                }
-              </script>
-            
+              <input type="text" id="email" name="email" >
+              <br>
+              
+              <p id="msgEmail" style="color: red;"></p>
+
+              <p>
+                <label for="age">الشركة التي تفضل منتجاتها</label>
+                <br>
+                <label><input type="checkbox"  name="ss" id="checkbox1"/>كتاكيت</label>
+                <br>
+                <label><input type="checkbox"  name="ss" id="checkbox2"/>جبري </label>
+                <br>
+                <label><input type="checkbox"  name="ss" id="checkbox3"/>الفرح</label>
+                <br>                
+                <label><input type="checkbox" name="ss"  id="checkbox4"/>نتالي</label>
+                <br>
+                <label><input type="checkbox"  name="ss" id="checkbox5"/>تياش</label>
+                <br>
+                <label><input type="checkbox" name="ss"  id="checkbox6"/>جاك ريسلر</label>
+                <br>
+                <label><input type="checkbox" name="ss"  id="checkbox7"/>ترينكيتو</label>
+              </p>
+              <br>
+              <p id="msgcheckbox" style="color: red;"></p>
+              
+              <p>
+                <label for="age">ما هو عمرك</label>
+                <select id="optionen">
+                  <option value="under20"> 0-19 </option>
+                  <option value="20-35"  > 20-35 </option>
+                  <option value="36-50"  > 35-50 </option>
+                  <option value="over50" > Over 50 </option>												
+                </select>
+              </p>
+              <br>
+              <input type="submit" value="Submit" onclick="validate(); return false">
             </form>
           </div>
-        </div>
+        
+        <textarea id = "summaryForm" class="container" style="margin-left: auto; margin-right: auto; display: block;"></textarea> <br> <br>
+        
+      <script>
+          function showSummary() {
+              var name = document.getElementById("name").value;
+              var email = document.getElementById("email").value;
+              var checkbox1 = document.getElementById("checkbox1").checked;
+              var checkbox2 = document.getElementById("checkbox2").checked;
+              var checkbox3 = document.getElementById("checkbox3").checked;
+              var checkbox4 = document.getElementById("checkbox4").checked;
+              var checkbox5 = document.getElementById("checkbox5").checked;
+              var checkbox6 = document.getElementById("checkbox6").checked;
+              var checkbox7 = document.getElementById("checkbox7").checked;
+              var optionen = document.getElementById("optionen").value;
+              
+              var summary =
+                  "Name: " + name + "\n" + "Email: " + email + "\n" + "checkbox:";
+              var claculate = 0;
+              var checkedVal=document.getElementsByName('ss');
+              for(i=0;i<checkedVal.length; i++)
+              {
+
+                  if(i == 0 && checkbox1){
+                    summary += "\n كتاكيت";
+                    claculate++;
+                  }
+                  if(i == 1 && checkbox2){
+                    summary += "\n جبري";
+                    claculate++;
+                  }
+                  if(i == 2 && checkbox3){
+                    summary += "\n الفرح";
+                    claculate++;
+                  }
+                  if(i == 3 && checkbox4){
+                    summary += "\n نتالي";
+                    claculate++;
+                  }
+                  if(i == 4 && checkbox5){
+                    summary += "\n تياش";
+                    claculate++;
+                  }
+                  if(i == 5 && checkbox6){
+                    summary += "\nجاك ريسلر ";
+                    claculate++;
+                  }
+                  if(i == 6 && checkbox7){
+                    summary += "\n ترينكيتو";
+                    claculate++;
+                  }
+                
+              }
+              summary += "\n" + "age:" + optionen + "\n" + "The summation of checkboxes: "; 
+              document.getElementById('summaryForm').innerHTML = summary + claculate;
+          }
+      </script>
+
+      <script>
+        function validate(){
+        let name=document.getElementById('name').value;
+        let email=document.getElementById('email').value;
+        if(name.length < 3) {
+          document.getElementById('msgName').innerHTML="Enter a valid name"; 
+          
+        }
+        else {
+          document.getElementById('msgName').innerHTML="";
+          
+    }
+    if(email.length < 3) {  
+     document.getElementById('msgEmail').innerHTML="Enter a valid email";
+    }
+    else {
+    document.getElementById('msgEmail').innerHTML="";
+    }
+    
+    onclick= showSummary();
+  } 
+      </script>
 
         <div class="footer">
             <div>
