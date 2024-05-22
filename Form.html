@@ -15,11 +15,29 @@
 
     <body>
 
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 
       
         <header>
-          <img  src="c:\Users\Toshiba\Desktop\Wep Project\Sweets Island logo.jpeg" alt="Sweets Island logo">
+
+          <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <div class="carousel-item active">
+                <img src="c:\Users\Toshiba\Desktop\Wep Project\Sweets Island logo.jpeg" class="d-block w-100" alt="...">
+              </div>
+              <div class="carousel-item">
+                <img src="c:\Users\Toshiba\Desktop\Wep Project\صورة سيارات 2.jpeg" class="d-block w-100" alt="...">
+              </div>
+              
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
             <h1><b> يساعدنا الاستبيان على معرفة منتجاتكم المفضلة </b></h1>
             <nav>
               <ul>
@@ -29,7 +47,7 @@
                 <li><a href="ContactUs.html"><b>تواصل معنا</b></a></li>
                 <li><a href="Products.html"><b>منتجاتنا</b></a></li>
                 <li><a href="AboutUs.html"><b>من نحن</b></a></li>
-                <li><a href="HomePage.html"><b>الصفحة الرئيسية</b></a></li>
+                <li><a href="index.html"><b>الصفحة الرئيسية</b></a></li>
         
         
               </ul>
@@ -81,10 +99,10 @@
               <p>
                 <label for="age">ما هو عمرك</label>
                 <select id="optionen">
-                  <option value="under20"> 0-19 </option>
+                  <option value="اقل من 20"> 0-19 </option>
                   <option value="20-35"  > 20-35 </option>
                   <option value="36-50"  > 35-50 </option>
-                  <option value="over50" > Over 50 </option>												
+                  <option value="اكثر من 50" > اكثر من 50 </option>												
                 </select>
               </p>
               <br>
@@ -108,7 +126,7 @@
               var optionen = document.getElementById("optionen").value;
               
               var summary =
-                  "Name: " + name + "\n" + "Email: " + email + "\n" + "checkbox:";
+                  "الاسم \n" + name + "\n" + "الايميل \n" + email + "\n" + "الشركات التي اخترتها";
               var claculate = 0;
               var checkedVal=document.getElementsByName('ss');
               for(i=0;i<checkedVal.length; i++)
@@ -144,7 +162,7 @@
                   }
                 
               }
-              summary += "\n" + "age:" + optionen + "\n" + "The summation of checkboxes: "; 
+              summary += "\n" + "العمر" + optionen + "\n" + "عدد الشركات التي اخترتها "; 
               document.getElementById('summaryForm').innerHTML = summary + claculate;
           }
       </script>
@@ -154,7 +172,7 @@
         let name=document.getElementById('name').value;
         let email=document.getElementById('email').value;
         if(name.length < 3) {
-          document.getElementById('msgName').innerHTML="Enter a valid name"; 
+          document.getElementById('msgName').innerHTML="الرجاء ادخال الاسم"; 
           
         }
         else {
@@ -162,7 +180,7 @@
           
     }
     if(email.length < 3) {  
-     document.getElementById('msgEmail').innerHTML="Enter a valid email";
+     document.getElementById('msgEmail').innerHTML="الرجاء ادخال الايميل";
     }
     else {
     document.getElementById('msgEmail').innerHTML="";
@@ -189,6 +207,7 @@
         
             <p><b>.شركة جزيرة السكاكر. جميع الحقوق محفوظة  &copy;</b></p>
          </div>
-         
+         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+
     </body>
     </html>
