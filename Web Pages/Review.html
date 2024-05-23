@@ -49,7 +49,8 @@
                         <input type="checkbox" id="check" name="check">
                         لقد تذوقت منجاتكم وهذا رأي فيها
                     </label>
-                    <input type="submit" value="Submit" onclick="OpenAlert()">
+                    <input type="submit" value="Submit" onclick="OpenAlert(); return false">
+                    <input type="reset" value="Reset Form"/>
                     <script>
                       function OpenAlert(){
                         window.alert("نشكر حسن تعاونكم");
